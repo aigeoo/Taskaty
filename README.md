@@ -1,0 +1,2 @@
+# Taskaty
+Taskaty is a flexible command-line task manager with essential features like task creation, reading, updating, and deletion. Sort, filter, and search tasks effortlessly. Save tasks in an MySQL database, receive reminders and notifications. Additional options include task dependencies, statistics reports, keyboard shortcuts, auto-completion, customization, user authentication, and extensibility. Streamline your task management with Taskaty.
