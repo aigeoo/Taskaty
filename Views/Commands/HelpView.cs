@@ -40,13 +40,13 @@ namespace Taskaty.Views.Commands
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("   task ");
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("\t--add              \t\tAdd a new task");
-                    Console.WriteLine("\t--details <id>     \t\tGet all information about the task");
-                    Console.WriteLine("\t--done    <id>     \t\tMark the task with done");
-                    Console.WriteLine("\t--update  <id>     \t\tUpdate the task information");
-                    Console.WriteLine("\t--list             \t\tGet  all tasks information");
-                    Console.WriteLine("\t--search  <keyword>\t\tsearch about a specific word in the tasks");
-                    Console.WriteLine("\t--delete  <id>     \t\tDelete a single task");
+                    Console.WriteLine("\t--create new      \tAdd a new task");
+                    Console.WriteLine("\t--read <id>       \tGet all information about the task");
+                    Console.WriteLine("\t--done <id>       \tMark the task with done");
+                    Console.WriteLine("\t--update <id>     \tUpdate the task information");
+                    Console.WriteLine("\t--list all        \tGet all tasks information");
+                    Console.WriteLine("\t--search <keyword>\tsearch about a specific word in the tasks");
+                    Console.WriteLine("\t--delete <id>     \tDelete a single task");
 
             Console.ResetColor();
         }

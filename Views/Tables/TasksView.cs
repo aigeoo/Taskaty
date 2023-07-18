@@ -1,4 +1,5 @@
 ﻿using Alba.CsConsoleFormat;
+using System.Text;
 using Taskaty.Views.Exceptions;
 using static System.ConsoleColor;
 
@@ -8,7 +9,7 @@ namespace Taskaty.Views.Tables
     {
         public static void Show(List<Models.Task> tasks)
         {
-              var headerThickness = new LineThickness(LineWidth.Double, LineWidth.Single);
+            var headerThickness = new LineThickness(LineWidth.Double, LineWidth.Single);
 
               var doc = new Document(
                   new Grid
@@ -36,7 +37,7 @@ namespace Taskaty.Views.Tables
                           tasks.ConvertAll(task => new[]
                           {
                               new Cell(task.Id.ToString()),
-                              new Cell(task.Status),
+                              new Cell(task.Status.ToString()),
                               new Cell(task.Title),
                               new Cell(task.Description),
                               new Cell(task.Deadline),
