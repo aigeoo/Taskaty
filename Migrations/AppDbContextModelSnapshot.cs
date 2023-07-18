@@ -29,19 +29,16 @@ namespace Taskaty.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Deadline")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(1)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -50,31 +47,6 @@ namespace Taskaty.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tasks");
-                });
-
-            modelBuilder.Entity("Taskaty.Models.User", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

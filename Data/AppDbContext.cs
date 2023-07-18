@@ -4,7 +4,7 @@ using Taskaty.Models;
 
 namespace Taskaty
 {
-    class AppDbContext : DbContext
+    internal class AppDbContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -13,8 +13,6 @@ namespace Taskaty
 
             optionsBuilder.UseMySql(connectionString, serverVersion);
         }
-
-        public DbSet<User> Users { get; set; }
 
         public DbSet<Models.Task> Tasks { get; set; }
     }

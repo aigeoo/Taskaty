@@ -10,7 +10,7 @@ namespace Taskaty.Models
     {
         public int Id { get; set; }
 
-        public string Status { get; set; } = "⏳";
+        public char Status { get; set; } = '\u23F3';
 
         public string? Title { get; set; }
 
