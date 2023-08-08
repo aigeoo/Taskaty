@@ -1,6 +1,6 @@
 ﻿using Alba.CsConsoleFormat;
-using System.Text;
-using Taskaty.Views.Exceptions;
+using Taskaty.Exceptions;
+using Taskaty.Views.helpers;
 using static System.ConsoleColor;
 
 namespace Taskaty.Views.Tables
@@ -9,16 +9,21 @@ namespace Taskaty.Views.Tables
     {
         public static void Show(Models.Task task)
         {
-            if (task != null)
-            { 
-                 var headerThickness = new LineThickness(LineWidth.Single, LineWidth.Single);
+            try
+            {
+                if (task == null)
+                {
+                    throw new TaskNotFoundException("The task is Invalid");
+                }
 
-                 var doc = new Document(
-                    new Grid
-                    {
-                        Color = Gray,
-                        Columns =
-                        {
+                var headerThickness = new LineThickness(LineWidth.Single, LineWidth.Single);
+
+                var doc = new Document(
+                   new Grid
+                   {
+                       Color = Gray,
+                       Columns =
+                       {
                             GridLength.Auto,
                             GridLength.Auto,
                             GridLength.Auto,
@@ -26,9 +31,9 @@ namespace Taskaty.Views.Tables
                             GridLength.Auto,
                             GridLength.Auto,
                             GridLength.Auto
-                        },
-                        Children =
-                        {
+                       },
+                       Children =
+                       {
                             new Cell("ID") { Stroke = headerThickness, Color = Blue },
                             new Cell("Status") { Stroke = headerThickness, Color = Blue },
                             new Cell("Title") { Stroke = headerThickness, Color = Blue },
@@ -46,16 +51,16 @@ namespace Taskaty.Views.Tables
                                 new Cell(task.CreatedAt.ToString()),
                                 new Cell(task.UpdatedAt.ToString())
                             }
-                        }
-                    }
-                 );
+                       }
+                   }
+                );
 
                 ConsoleRenderer.RenderDocument(doc);
                 Console.WriteLine();
             }
-            else
+            catch (TaskNotFoundException ex)
             {
-                TaskNotFoundException.Show();
+                ExceptionHandler.PrintError(ex.Message);
             }
         }
     }

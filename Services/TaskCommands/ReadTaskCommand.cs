@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Taskaty.Services.Interfaces;
-using Taskaty.Views.Exceptions;
+using Taskaty.Exceptions;
+using Taskaty.Views.helpers;
 using Taskaty.Views.Tables;
 
 namespace Taskaty.Services.TaskCommands
@@ -10,14 +11,20 @@ namespace Taskaty.Services.TaskCommands
     {
         public void Execute(AppDbContext context, string arg)
         {
-            Models.Task? task = context.Tasks.Find(int.Parse(arg));
-            if (task != null)
+            try
             {
+                Models.Task? task = context.Tasks.Find(int.Parse(arg));
+
+                if (task == null)
+                {
+                    throw new TaskNotFoundException("\nThe task with ID " + arg + " was not found.");
+                }
+
                 SingleTaskView.Show(task);
             }
-            else
+            catch (TaskNotFoundException ex)
             {
-                TaskNotFoundException.Show();
+                ExceptionHandler.PrintError(ex.Message);
             }
         }
     }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Taskaty.Services.Interfaces;
 using Taskaty.Views.Tables;
+using Taskaty.Exceptions;
+using Taskaty.Views.helpers;
 
 namespace Taskaty.Services.TaskCommands
 {
@@ -9,9 +11,22 @@ namespace Taskaty.Services.TaskCommands
     {
         public void Execute(AppDbContext context, string arg)
         {
-            List<Models.Task> tasks = context.Tasks.ToList();
+            try
+            {
+                List<Models.Task> tasks = context.Tasks.ToList();
+                
+                if (tasks == null)
+                {
+                    throw new TaskNotFoundException("\nThere are no tasks yet.");
+                }
 
-            TasksView.Show(tasks);
+                TasksView.Show(tasks);
+            }
+            catch (TaskNotFoundException ex)
+            {
+                ExceptionHandler.PrintError(ex.Message);
+            }
+
         }
     }
 }

@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using Taskaty.Services.Interfaces;
+using Taskaty.Exceptions;
+using Taskaty.Views.helpers;
+
 
 namespace Taskaty.Services.TaskCommands
 {
@@ -9,19 +10,35 @@ namespace Taskaty.Services.TaskCommands
     {
         public void Execute(AppDbContext context, string arg)
         {
-            Models.Task task = new();
+            try
+            {
+                Models.Task task = new();
 
-            Console.Write("Title: ");
-            task.Title = Console.ReadLine();
+                Console.Write("\nTitle: ");
+                task.Title = Console.ReadLine().Trim();
 
-            Console.Write("Description: ");
-            task.Description = Console.ReadLine();
+                Console.Write("\nDescription: ");
+                task.Description = Console.ReadLine().Trim();
 
-            Console.Write("Deadline: ");
-            task.Deadline = Console.ReadLine();
+                Console.Write("\nDeadline: ");
+                task.Deadline = Console.ReadLine().Trim();
 
-            context.Tasks.Add(task);
-            context.SaveChanges();
+                if (string.IsNullOrEmpty(task.Title) ||
+                    string.IsNullOrEmpty(task.Description) ||
+                    string.IsNullOrEmpty(task.Deadline))
+                {
+                    throw new InvalidInputValueException("\nFields should be of type string and must not be empty.");
+                }
+
+                context.Tasks.Add(task);
+                context.SaveChanges();
+
+                ExceptionHandler.PrintSuccess("\nNew task was created successfully.");
+            }
+            catch (InvalidInputValueException ex)
+            {
+                ExceptionHandler.PrintError(ex.Message);
+            }
         }
     }
 }
