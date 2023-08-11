@@ -11,18 +11,18 @@ namespace Taskaty.Services.TaskCommands
     {
         private Models.Task? updatedTask;
 
-        public void Execute(AppDbContext context, string arg)
+        public void Execute(AppDbContext context, int id)
         {
             try
             {
-                Models.Task? task = context.Tasks.Find(int.Parse(arg));
+                Models.Task? task = context.Tasks.Find(id);
 
                 if (task == null)
                 {
-                    throw new TaskNotFoundException("\nThe task with ID " + arg + " was not found.");
+                    throw new TaskNotFoundException("\nThe task with ID " + id + " was not found.");
                 }
 
-                updatedTask = UpdatingWizard(arg, task);
+                updatedTask = UpdatingWizard(id, task);
 
                 context.Entry(updatedTask).State = EntityState.Modified;
                 context.SaveChanges();
@@ -35,9 +35,9 @@ namespace Taskaty.Services.TaskCommands
             }
         }
 
-        private Models.Task UpdatingWizard(string arg, Models.Task task)
+        private Models.Task UpdatingWizard(int id, Models.Task task)
         {
-            Console.WriteLine("Enter updated information for the task with ID " + arg + ":");
+            Console.WriteLine("Enter updated information for the task with ID " + id + ":");
             Console.Write("Title: ");
             var title = Console.ReadLine();
             task.Title = string.IsNullOrEmpty(title) ? task.Title : title;

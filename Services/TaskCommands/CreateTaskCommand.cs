@@ -8,7 +8,7 @@ namespace Taskaty.Services.TaskCommands
 {
     internal class CreateTaskCommand : ICommand
     {
-        public void Execute(AppDbContext context, string arg)
+        public void Execute(AppDbContext context, int id)
         {
             try
             {

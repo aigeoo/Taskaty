@@ -9,7 +9,7 @@ namespace Taskaty.Services.TaskCommands
 {
     internal class ListTasksCommand : ICommand
     {
-        public void Execute(AppDbContext context, string arg)
+        public void Execute(AppDbContext context, int id)
         {
             try
             {
@@ -26,7 +26,6 @@ namespace Taskaty.Services.TaskCommands
             {
                 ExceptionHandler.PrintError(ex.Message);
             }
-
         }
     }
 }

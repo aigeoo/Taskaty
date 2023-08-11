@@ -9,15 +9,15 @@ namespace Taskaty.Services.TaskCommands
 {
     internal class ReadTaskCommand : ICommand
     {
-        public void Execute(AppDbContext context, string arg)
+        public void Execute(AppDbContext context, int id)
         {
             try
             {
-                Models.Task? task = context.Tasks.Find(int.Parse(arg));
+                Models.Task? task = context.Tasks.Find(id);
 
                 if (task == null)
                 {
-                    throw new TaskNotFoundException("\nThe task with ID " + arg + " was not found.");
+                    throw new TaskNotFoundException("\nThe task with ID " + id + " was not found.");
                 }
 
                 SingleTaskView.Show(task);

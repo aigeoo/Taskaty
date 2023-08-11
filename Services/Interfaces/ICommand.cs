@@ -5,6 +5,6 @@ namespace Taskaty.Services.Interfaces
 {
     internal interface ICommand
     {
-        void Execute(AppDbContext context, string arg);
+        void Execute(AppDbContext context, int id);
     }
 }
