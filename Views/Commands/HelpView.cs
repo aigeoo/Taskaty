@@ -4,7 +4,7 @@ namespace Taskaty.Views.Commands
 {
     public class HelpView
     {
-        public static void Show()
+        public HelpView()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write(@"
@@ -25,28 +25,20 @@ namespace Taskaty.Views.Commands
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("1.0.0 \n\n");
 
-            Console.WriteLine(" Usage: ");
+            Console.WriteLine("  Usage: ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("   command [option] [arguments=<id>|<keyword>]\n");
+            Console.WriteLine("\tTaskaty.exe [OPTIONS] ...\n");
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(" Available commands: ");
-
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.Write("   -h, --help");
+            Console.WriteLine("  Available options: ");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("\t\t\t\tDisplay help for the list command");
-
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("   task ");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("\t--create new      \tAdd a new task");
-                    Console.WriteLine("\t--read <id>       \tGet all information about the task");
-                    Console.WriteLine("\t--done <id>       \tMark the task with done");
-                    Console.WriteLine("\t--update <id>     \tUpdate the task information");
-                    Console.WriteLine("\t--list all        \tGet all tasks information");
-                    Console.WriteLine("\t--search <keyword>\tsearch about a specific word in the tasks");
-                    Console.WriteLine("\t--delete <id>     \tDelete a single task");
+                Console.WriteLine("\t--help            \tDisplay help for the list of commands");
+                Console.WriteLine("\t--create          \tAdd a new task");
+                Console.WriteLine("\t--read <id>       \tDisplay detailed information about a specific task");
+                Console.WriteLine("\t--done <id>       \tMark a task as completed");
+                Console.WriteLine("\t--update <id>     \tModify task information");
+                Console.WriteLine("\t--list            \tDisplay information for all tasks");
+                Console.WriteLine("\t--delete <id>     \tDelete a single task");
 
             Console.ResetColor();
         }

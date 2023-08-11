@@ -13,7 +13,7 @@ namespace Taskaty.Views.Tables
             {
                 if (tasks == null)
                 {
-                    throw new TaskNotFoundException("Tasks list is invalid");
+                    throw new TaskNotFoundException("\nTasks list is invalid");
                 }
 
                 var headerThickness = new LineThickness(LineWidth.Double, LineWidth.Single);
@@ -32,18 +32,18 @@ namespace Taskaty.Views.Tables
                         },
                         Children =
                         {
-                          new Cell("ID") { Stroke = headerThickness, Color = Blue },
-                          new Cell("Status") { Stroke = headerThickness, Color = Blue },
-                          new Cell("Title") { Stroke = headerThickness, Color = Blue },
-                          new Cell("Description") { Stroke = headerThickness, Color = Blue },
-                          new Cell("Deadline") { Stroke = headerThickness, Color = Blue },
+                          new Cell("  ID      ") { Color = Blue },
+                          new Cell("  Status     ") { Color = Blue },
+                          new Cell("  Title    ") { Color = Blue },
+                          new Cell("  Description   ") { Color = Blue },
+                          new Cell("  Deadline   ") { Color = Blue },
                           tasks.ConvertAll(task => new[]
                           {
-                              new Cell(task.Id.ToString()),
-                              new Cell(task.Status.ToString()),
-                              new Cell(task.Title),
-                              new Cell(task.Description),
-                              new Cell(task.Deadline),
+                              new Cell("   " + task.Id.ToString()),
+                              new Cell("   " + task.Status.ToString()),
+                              new Cell("   " + task.Title),
+                              new Cell("   " + task.Description),
+                              new Cell("   " + task.Deadline),
                           })
                         }
                     }
