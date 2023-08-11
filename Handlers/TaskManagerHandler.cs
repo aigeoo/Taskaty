@@ -1,50 +1,71 @@
-﻿using System;
+﻿using Alba.CsConsoleFormat;
+using System;
 using System.Collections.Generic;
+using Taskaty.Exceptions;
 using Taskaty.Services;
 using Taskaty.Services.Interfaces;
 using Taskaty.Views.Commands;
+using Taskaty.Views.helpers;
 
 namespace Taskaty.Handlers
 {
     class TaskManagerHandler
     {
-        private readonly Dictionary<string, Service> services;
+        private readonly Service service;
+        private readonly string[] valueless_arguments = { "--list", "--create", "--help" };
 
         public TaskManagerHandler()
         {
-            services = new Dictionary<string, Service>
-            {
-                { "task", new TaskService() },
-            };
+            service = new TaskService();
         }
 
         public void ExecuteCommand(AppDbContext db, string[] args)
         {
-            if (args.Length < 3)
+            try
             {
-                HelpView.Show();
-                return;
-            }
-
-            string serviceName = args[0];
-            string commandName = args[1];
-            string commandArg = "null";
-
-            if (!String.IsNullOrEmpty(args[2]))
-            {
-                commandArg = args[2];
-            }
-
-            if (services.TryGetValue(serviceName, out Service? service))
-            {
-                if (service.GetCommands().TryGetValue(commandName, out ICommand? command))
+                if (args.Length < 1)
                 {
-                    command.Execute(db, commandArg);
+                    Console.WriteLine("\nUsage: Taskaty.exe [OPTIONS] ...\n");
+                    Console.WriteLine("Type Taskaty.exe --help to see a list of all options.\n");
+
+                    return;
+                }
+
+                string argument = args[0];
+                int id;
+
+                if (!service.GetCommands().TryGetValue(argument, out ICommand? command))
+                {
+                    throw new CommandNotFoundException("\nThere is no such option: " + argument);
+                }
+
+                if (valueless_arguments.Contains(argument))
+                {
+                    id = 0;
                 }
                 else
                 {
-                    Console.WriteLine("Unknown command: " + commandName);
+                    if (args.Length < 2)
+                    {
+                        throw new InvalidInputValueException("\nThe option value must be provided.");
+                    }
+
+                    if (!int.TryParse(args[1], out id))
+                    {
+                        throw new InvalidInputValueException("\nThe option value must be an integer.");
+                    }
                 }
+
+                command.Execute(db, id);
+
+            }
+            catch (CommandNotFoundException ex)
+            {
+                ExceptionHandler.PrintError(ex.Message);
+            }
+            catch (InvalidInputValueException ex)
+            {
+                ExceptionHandler.PrintError(ex.Message);
             }
         }
     }
