@@ -14,6 +14,7 @@ internal class TaskService : Service
             { "--update", new UpdateTaskCommand() },
             { "--delete", new DeleteTaskCommand() },
             { "--list", new ListTasksCommand() },
+            { "--desc", new SortTasksDescCommand() },
             { "--done", new MarkedTaskAsDoneCommand() },
         };
     }
