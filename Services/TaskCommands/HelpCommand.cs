@@ -9,7 +9,7 @@ namespace Taskaty.Services.TaskCommands
     {
         public void Execute(AppDbContext context, int id)
         {
-            new HelpView();
+            _ = new HelpView();
         }
     }
 }

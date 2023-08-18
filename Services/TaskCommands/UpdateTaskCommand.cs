@@ -35,7 +35,7 @@ namespace Taskaty.Services.TaskCommands
             }
         }
 
-        private Models.Task UpdatingWizard(int id, Models.Task task)
+        private static Models.Task UpdatingWizard(int id, Models.Task task)
         {
             Console.WriteLine("Enter updated information for the task with ID " + id + ":");
             Console.Write("Title: ");

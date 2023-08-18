@@ -7,9 +7,9 @@ namespace Taskaty
     {
         static void Main(string[] args)
         {
-            AppDbContext db = new AppDbContext();
+            AppDbContext db = new();
 
-            TaskManagerHandler taskManager = new TaskManagerHandler();
+            TaskManagerHandler taskManager = new();
             taskManager.ExecuteCommand(db, args);
         }
     }
