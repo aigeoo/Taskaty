@@ -16,7 +16,7 @@ namespace Taskaty.Models
 
         public string? Description { get; set; }
 
-        public string? Deadline { get; set; }
+        public string? Due { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 

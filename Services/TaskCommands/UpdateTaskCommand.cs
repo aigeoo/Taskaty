@@ -50,9 +50,9 @@ namespace Taskaty.Services.TaskCommands
             var status = Console.ReadLine();
             task.Status = string.IsNullOrEmpty(status) || status != "done" ? task.Status : '\u2714';
 
-            Console.Write("Deadline: ");
+            Console.Write("Due: ");
             var deadline = Console.ReadLine();
-            task.Deadline = string.IsNullOrEmpty(deadline) ? task.Deadline : deadline;
+            task.Due = string.IsNullOrEmpty(deadline) ? task.Due : deadline;
             task.UpdatedAt = DateTime.Now;
 
             return task;

@@ -39,7 +39,7 @@ namespace Taskaty.Views.Tables
                            new Cell("  Status     ") { Color = Blue },
                            new Cell("  Title    ") { Color = Blue },
                            new Cell("  Description   ") { Color = Blue },
-                           new Cell("  Deadline   ") { Color = Blue },
+                           new Cell("  Due   ") { Color = Blue },
                            new Cell("  Created At ") { Color = Blue },
                            new Cell("  Updated At ") { Color = Blue },
                            new[]
@@ -48,7 +48,7 @@ namespace Taskaty.Views.Tables
                                 new Cell("   " + task.Status.ToString()),
                                 new Cell("   " + task.Title),
                                 new Cell("   " + task.Description),
-                                new Cell("   " + task.Deadline),
+                                new Cell("   " + task.Due),
                                 new Cell("   " + task.CreatedAt.ToString()),
                                 new Cell("   " + task.UpdatedAt.ToString())
                             }
