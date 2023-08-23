@@ -11,9 +11,6 @@ namespace Taskaty.Exceptions
         public CommandNotFoundException(string message)
             : base(message)
         {
-            //Console.BackgroundColor = ConsoleColor.DarkRed;
-            //Console.WriteLine("\n   Command \"" + command + "\" is not defined");
-            //Console.ResetColor();
         }
 
         public CommandNotFoundException(string message, Exception inner)

@@ -16,13 +16,13 @@ namespace Taskaty.Services.TaskCommands
 
                 if (task == null)
                 {
-                    throw new TaskNotFoundException("\nThe task with ID " + id + " was not found.");
+                    throw new TaskNotFoundException("The task with ID " + id + " was not found.");
                 }
 
                 context.Tasks.Remove(task);
                 context.SaveChanges();
 
-                ExceptionHandler.PrintSuccess("\nThe task was deleted successfully.");
+                ExceptionHandler.PrintSuccess("The task was deleted successfully.");
             }
             catch (TaskNotFoundException e)
             {

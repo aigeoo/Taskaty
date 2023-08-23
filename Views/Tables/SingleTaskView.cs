@@ -14,7 +14,7 @@ namespace Taskaty.Views.Tables
             {
                 if (task == null)
                 {
-                    throw new TaskNotFoundException("\nThe task is Invalid");
+                    throw new TaskNotFoundException("The task is Invalid");
                 }
 
                 var headerThickness = new LineThickness(LineWidth.Single, LineWidth.Single);
@@ -35,11 +35,11 @@ namespace Taskaty.Views.Tables
                        },
                        Children =
                        {
-                           new Cell("  ID      ") { Color = Blue },
+                           new Cell("  ID         ") { Color = Blue },
                            new Cell("  Status     ") { Color = Blue },
-                           new Cell("  Title    ") { Color = Blue },
-                           new Cell("  Note   ") { Color = Blue },
-                           new Cell("  Due   ") { Color = Blue },
+                           new Cell("  Title      ") { Color = Blue },
+                           new Cell("  Note       ") { Color = Blue },
+                           new Cell("  Due        ") { Color = Blue },
                            new Cell("  Created At ") { Color = Blue },
                            new Cell("  Updated At ") { Color = Blue },
                            new[]

@@ -13,7 +13,7 @@ namespace Taskaty.Views.Tables
             {
                 if (tasks == null)
                 {
-                    throw new TaskNotFoundException("\nTasks list is invalid");
+                    throw new TaskNotFoundException("Tasks list is invalid");
                 }
 
                 var headerThickness = new LineThickness(LineWidth.Double, LineWidth.Single);

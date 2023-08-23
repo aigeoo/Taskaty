@@ -16,7 +16,7 @@ namespace Taskaty.Services.TaskCommands
 
                 if (tasks == null)
                 {
-                    throw new TaskNotFoundException("\nThere are no tasks yet.");
+                    throw new TaskNotFoundException("There are no tasks yet.");
                 }
 
                 switch(id)
@@ -28,7 +28,7 @@ namespace Taskaty.Services.TaskCommands
                         TasksExportingHandler.ExportHTML(tasks);
                         break;
                     default:
-                        throw new Exception("\n Something went wrong ");
+                        throw new Exception("Something went wrong.");
                 }
             }
             catch (TaskNotFoundException ex)

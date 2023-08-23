@@ -18,14 +18,14 @@ namespace Taskaty.Services.TaskCommands
 
                 if (task == null)
                 {
-                    throw new TaskNotFoundException("\nThe task with ID " + id + " was not found.");
+                    throw new TaskNotFoundException("The task with ID " + id + " was not found.");
                 }
 
                 task.Status = '\u2705';
                 context.Entry(task).State = EntityState.Modified;
                 context.SaveChanges();
 
-                ExceptionHandler.PrintSuccess("\nGreate Progress, Keep that energy \U0001F525\n");
+                ExceptionHandler.PrintSuccess("Greate Progress, Keep that energy \U0001F525");
             }
             catch (TaskNotFoundException ex)
             {

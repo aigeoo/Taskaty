@@ -27,13 +27,13 @@ namespace Taskaty.Services.TaskCommands
                     string.IsNullOrEmpty(task.Note) ||
                     string.IsNullOrEmpty(task.Due))
                 {
-                    throw new InvalidInputValueException("\nFields should be of type string and must not be empty.");
+                    throw new InvalidInputValueException("Fields should be of type string and must not be empty.");
                 }
 
                 context.Tasks.Add(task);
                 context.SaveChanges();
 
-                ExceptionHandler.PrintSuccess("\nNew task was created successfully.");
+                ExceptionHandler.PrintSuccess("New task was created successfully.");
             }
             catch (InvalidInputValueException ex)
             {

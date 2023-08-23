@@ -17,7 +17,7 @@ namespace Taskaty.Services.TaskCommands
 
                 if (task == null)
                 {
-                    throw new TaskNotFoundException("\nThe task with ID " + id + " was not found.");
+                    throw new TaskNotFoundException("The task with ID " + id + " was not found.");
                 }
 
                 SingleTaskView.Show(task);

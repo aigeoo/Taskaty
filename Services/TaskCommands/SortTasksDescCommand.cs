@@ -17,7 +17,7 @@ namespace Taskaty.Services.TaskCommands
 
                 if (tasks == null)
                 {
-                    throw new TaskNotFoundException("\nThere are no tasks yet.");
+                    throw new TaskNotFoundException("There are no tasks yet.");
                 }
 
                 TasksView.Show(tasks);

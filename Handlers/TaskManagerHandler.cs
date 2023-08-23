@@ -36,7 +36,7 @@ namespace Taskaty.Handlers
 
                 if (!service.GetCommands().TryGetValue(argument, out ICommand? command))
                 {
-                    throw new CommandNotFoundException("\nThere is no such option: " + argument);
+                    throw new CommandNotFoundException("There is no such option: " + argument);
                 }
 
                 if (valueless_arguments.Contains(argument))
@@ -47,12 +47,12 @@ namespace Taskaty.Handlers
                 {
                     if (args.Length < 2)
                     {
-                        throw new InvalidInputValueException("\nThe option value must be provided.");
+                        throw new InvalidInputValueException("The option value must be provided.");
                     }
 
                     if (!int.TryParse(args[1], out id))
                     {
-                        throw new InvalidInputValueException("\nThe option value must be an integer.");
+                        throw new InvalidInputValueException("The option value must be an integer.");
                     }
                 }
 

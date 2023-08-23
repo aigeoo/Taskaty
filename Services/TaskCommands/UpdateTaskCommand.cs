@@ -19,7 +19,7 @@ namespace Taskaty.Services.TaskCommands
 
                 if (task == null)
                 {
-                    throw new TaskNotFoundException("\nThe task with ID " + id + " was not found.");
+                    throw new TaskNotFoundException("The task with ID " + id + " was not found.");
                 }
 
                 updatedTask = UpdatingWizard(id, task);
@@ -27,7 +27,7 @@ namespace Taskaty.Services.TaskCommands
                 context.Entry(updatedTask).State = EntityState.Modified;
                 context.SaveChanges();
 
-                ExceptionHandler.PrintSuccess("\nTask updated successfully.");
+                ExceptionHandler.PrintSuccess("Task updated successfully.");
             }
             catch (TaskNotFoundException ex)
             {

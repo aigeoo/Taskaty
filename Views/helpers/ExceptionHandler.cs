@@ -11,14 +11,14 @@ namespace Taskaty.Views.helpers
         public static void PrintError(string message)
         {
             Console.BackgroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine(message);
+            Console.WriteLine('\n' + " " + message + " ");
             Console.ResetColor();
         }
 
         public static void PrintSuccess(string message)
         {
             Console.BackgroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine(message);
+            Console.WriteLine('\n' + " " + message + " ");
             Console.ResetColor();
         }
     }
