@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Taskaty.Models;
 
@@ -6,14 +7,14 @@ namespace Taskaty
 {
     internal class AppDbContext : DbContext
     {
+        public DbSet<Models.Task> Tasks { get; set; }
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var serverVersion = new MySqlServerVersion(new Version(8, 0, 29));
-            var connectionString = "SERVER=localhost;DATABASE=taskaty;UID=root;PASSWORD=''";
+            string assemblyLocation = Assembly.GetExecutingAssembly().Location;
 
-            optionsBuilder.UseMySql(connectionString, serverVersion);
+            string dbPath = Path.Combine(Path.GetDirectoryName(assemblyLocation)!, "app.db");
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
         }
-
-        public DbSet<Models.Task> Tasks { get; set; }
     }
 }
