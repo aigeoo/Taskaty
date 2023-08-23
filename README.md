@@ -3,6 +3,7 @@
 Taskaty is a versatile command-line task manager that helps you keep track of your tasks efficiently.
 
 ## Installation
+- Make sure that you have installed (dotnet, ef) in your machine before start the installation process.
 ```sh
 git clone https://github.com/aigeoo/Taskaty.git
 cd Taskaty
