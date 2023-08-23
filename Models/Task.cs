@@ -14,7 +14,7 @@ namespace Taskaty.Models
 
         public string? Title { get; set; }
 
-        public string? Description { get; set; }
+        public string? Note { get; set; }
 
         public string? Due { get; set; }
 

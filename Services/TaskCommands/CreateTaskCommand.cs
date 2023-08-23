@@ -17,14 +17,14 @@ namespace Taskaty.Services.TaskCommands
                 Console.Write("\nTitle: ");
                 task.Title = Console.ReadLine()!.Trim();
 
-                Console.Write("\nDescription: ");
-                task.Description = Console.ReadLine()!.Trim();
+                Console.Write("\nNote: ");
+                task.Note = Console.ReadLine()!.Trim();
 
-                Console.Write("\nDeadline: ");
+                Console.Write("\nDue: ");
                 task.Due = Console.ReadLine()!.Trim();
 
                 if (string.IsNullOrEmpty(task.Title) ||
-                    string.IsNullOrEmpty(task.Description) ||
+                    string.IsNullOrEmpty(task.Note) ||
                     string.IsNullOrEmpty(task.Due))
                 {
                     throw new InvalidInputValueException("\nFields should be of type string and must not be empty.");

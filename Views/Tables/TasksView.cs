@@ -35,14 +35,14 @@ namespace Taskaty.Views.Tables
                           new Cell("  ID      ") { Color = Blue },
                           new Cell("  Status     ") { Color = Blue },
                           new Cell("  Title    ") { Color = Blue },
-                          new Cell("  Description   ") { Color = Blue },
+                          new Cell("  Note   ") { Color = Blue },
                           new Cell("  Due   ") { Color = Blue },
                           tasks.ConvertAll(task => new[]
                           {
                               new Cell("   " + task.Id.ToString()),
                               new Cell("   " + task.Status.ToString()),
                               new Cell("   " + task.Title),
-                              new Cell("   " + task.Description),
+                              new Cell("   " + task.Note),
                               new Cell("   " + task.Due),
                           })
                         }

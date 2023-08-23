@@ -42,17 +42,17 @@ namespace Taskaty.Services.TaskCommands
             var title = Console.ReadLine();
             task.Title = string.IsNullOrEmpty(title) ? task.Title : title;
 
-            Console.Write("Description: ");
-            var description = Console.ReadLine();
-            task.Description = string.IsNullOrEmpty(description) ? task.Description : description;
+            Console.Write("Note: ");
+            var note = Console.ReadLine();
+            task.Note = string.IsNullOrEmpty(note) ? task.Note : note;
 
             Console.Write("Status (type 'done' if task finish): ");
             var status = Console.ReadLine();
             task.Status = string.IsNullOrEmpty(status) || status != "done" ? task.Status : '\u2714';
 
             Console.Write("Due: ");
-            var deadline = Console.ReadLine();
-            task.Due = string.IsNullOrEmpty(deadline) ? task.Due : deadline;
+            var due = Console.ReadLine();
+            task.Due = string.IsNullOrEmpty(due) ? task.Due : due;
             task.UpdatedAt = DateTime.Now;
 
             return task;
