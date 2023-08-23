@@ -21,11 +21,11 @@ namespace Taskaty.Services.TaskCommands
                     throw new TaskNotFoundException("The task with ID " + id + " was not found.");
                 }
 
-                task.Status = '\u2705';
+                task.Status = "done";
                 context.Entry(task).State = EntityState.Modified;
                 context.SaveChanges();
 
-                ExceptionHandler.PrintSuccess("Greate Progress, Keep that energy \U0001F525");
+                ExceptionHandler.PrintSuccess("Greate Progress, Keep that energy (:");
             }
             catch (TaskNotFoundException ex)
             {

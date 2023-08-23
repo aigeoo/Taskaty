@@ -10,7 +10,7 @@ namespace Taskaty.Models
     {
         public int Id { get; set; }
 
-        public char Status { get; set; } = '\u23F3';
+        public string? Status { get; set; } = "pending";
 
         public string? Title { get; set; }
 
