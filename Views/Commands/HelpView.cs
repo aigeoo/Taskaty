@@ -40,6 +40,7 @@ namespace Taskaty.Views.Commands
                 Console.WriteLine("\t--list            \tDisplay information for all tasks");
                 Console.WriteLine("\t--desc            \tSorts all tasks in descending");
                 Console.WriteLine("\t--delete <id>     \tDelete a single task");
+                Console.WriteLine("\t--export <id>     \tExport tasks in these formats: (1: HTML, 2: Markdown)");
 
             Console.ResetColor();
         }
