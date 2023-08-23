@@ -48,7 +48,7 @@ namespace Taskaty.Services.TaskCommands
 
             Console.Write("Status (type 'done' if task finish): ");
             var status = Console.ReadLine();
-            task.Status = string.IsNullOrEmpty(status) || status != "done" ? task.Status : "\u2714";
+            task.Status = string.IsNullOrEmpty(status) || status != "done" ? task.Status : "done";
 
             Console.Write("Due: ");
             var due = Console.ReadLine();
