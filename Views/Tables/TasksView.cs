@@ -40,7 +40,7 @@ namespace Taskaty.Views.Tables
                           tasks.ConvertAll(task => new[]
                           {
                               new Cell("   " + task.Id.ToString()),
-                              new Cell("   " + task.Status.ToString()),
+                              new Cell("   " + task.Status),
                               new Cell("   " + task.Title),
                               new Cell("   " + task.Note),
                               new Cell("   " + task.Due),

@@ -36,6 +36,7 @@ namespace Taskaty.Views.Commands
                 Console.WriteLine("\t--create          \tAdd a new task");
                 Console.WriteLine("\t--read   <id>     \tDisplay detailed information about a specific task");
                 Console.WriteLine("\t--done   <id>     \tMark a task as completed");
+                Console.WriteLine("\t--clean           \tClean all completed tasks");
                 Console.WriteLine("\t--update <id>     \tModify task information");
                 Console.WriteLine("\t--list            \tDisplay information for all tasks");
                 Console.WriteLine("\t--desc            \tSorts all tasks in descending");

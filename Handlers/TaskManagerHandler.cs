@@ -12,7 +12,7 @@ namespace Taskaty.Handlers
     class TaskManagerHandler
     {
         private readonly Service service;
-        private readonly string[] valueless_arguments = { "--list", "--create", "--help", "--desc" };
+        private readonly string[] valueless_arguments = { "--list", "--create", "--help", "--desc", "--clean" };
 
         public TaskManagerHandler()
         {
