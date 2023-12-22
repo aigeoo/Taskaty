@@ -35,22 +35,22 @@ namespace Taskaty.Views.Tables
                        },
                        Children =
                        {
-                           new Cell("  ID         ") { Color = Blue },
-                           new Cell("  Status     ") { Color = Blue },
-                           new Cell("  Title      ") { Color = Blue },
-                           new Cell("  Note       ") { Color = Blue },
-                           new Cell("  Due        ") { Color = Blue },
-                           new Cell("  Created At ") { Color = Blue },
-                           new Cell("  Updated At ") { Color = Blue },
+                           new Cell("  ID") { Color = Blue },
+                           new Cell("  Status") { Color = Blue },
+                           new Cell("  Title") { Color = Blue },
+                           new Cell("  Note") { Color = Blue },
+                           new Cell("  Due") { Color = Blue },
+                           new Cell("  Created At") { Color = Blue },
+                           new Cell("  Updated At") { Color = Blue },
                            new[]
                            {
-                                new Cell("   " + task.Id.ToString()),
-                                new Cell("   " + task.Status),
-                                new Cell("   " + task.Title),
-                                new Cell("   " + task.Note),
-                                new Cell("   " + task.Due),
-                                new Cell("   " + task.CreatedAt.ToString()),
-                                new Cell("   " + task.UpdatedAt.ToString())
+                                new Cell("  " + task.Id.ToString() + "  "),
+                                new Cell("  " + task.Status + "  "),
+                                new Cell("  " + task.Title + "  "),
+                                new Cell("  " + task.Note + "  "),
+                                new Cell("  " + task.Due + "  "),
+                                new Cell("  " + task.CreatedAt.ToString() + "  "),
+                                new Cell("  " + task.UpdatedAt.ToString() + "  ")
                             }
                        }
                    }
